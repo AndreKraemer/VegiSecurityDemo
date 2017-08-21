@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using Newtonsoft.Json.Serialization;
 
 namespace Ak.ElVegetarianoFurio
 {
@@ -10,7 +11,9 @@ namespace Ak.ElVegetarianoFurio
         public static void Register(HttpConfiguration config)
         {
             // Web-API-Konfiguration und -Dienste
-
+            config.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+            config.Formatters.JsonFormatter.SerializerSettings.PreserveReferencesHandling = Newtonsoft.Json.PreserveReferencesHandling.None;
+            config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
             // Web-API-Routen
             config.MapHttpAttributeRoutes();
 

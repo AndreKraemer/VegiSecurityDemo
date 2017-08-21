@@ -15,6 +15,7 @@ namespace Ak.ElVegetarianoFurio.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        ApplicationDbContext _db = new ApplicationDbContext();
 
         public ManageController()
         {
@@ -64,6 +65,10 @@ namespace Ak.ElVegetarianoFurio.Controllers
                 : "";
 
             var userId = User.Identity.GetUserId();
+
+            ViewBag.ShowCouponLink =
+                !_db.Coupons.Any(x => x.UserId == userId && x.Date.Year == DateTime.Today.Year &&
+                                      x.Date.Month == DateTime.Today.Month);
             var model = new IndexViewModel
             {
                 HasPassword = HasPassword(),
@@ -328,6 +333,7 @@ namespace Ak.ElVegetarianoFurio.Controllers
             {
                 _userManager.Dispose();
                 _userManager = null;
+                _db.Dispose();
             }
 
             base.Dispose(disposing);
