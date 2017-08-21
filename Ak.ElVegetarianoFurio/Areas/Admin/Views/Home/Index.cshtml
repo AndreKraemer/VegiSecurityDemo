@@ -19,21 +19,21 @@
         <th></th>
     </tr>
 
-    @foreach (var item in Model)
+    @foreach (var user in Model)
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Email)
+                @Html.DisplayFor(modelItem => user.Email)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.UserName)
+                @Html.DisplayFor(modelItem => user.UserName)
             </td>
             <td>
-                @using (Html.BeginForm("MakeAdmin", "Home", FormMethod.Post, new { id = item.Id, Area = "Admin" }))
+                @using (Html.BeginForm("MakeAdmin", "Home", new { id = user.Id, Area = "Admin" }, FormMethod.Post))
                 {
-                    <input type="submit" class="btn btn-danger" value="Admin"/>
+                    <input type="submit" class="btn btn-primary" value="Admin"/>
                 }
-                @using (Html.BeginForm("Delete", "Home", FormMethod.Post, new {id = item.Id, Area = "Admin"}))
+                @using (Html.BeginForm("Delete", "Home", new {id = user.Id, Area = "Admin"}, FormMethod.Post))
                 {
                     <input type="submit" class="btn btn-danger" value="Löschen"/>
                 }
