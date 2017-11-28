@@ -1,0 +1,23 @@
+﻿@model IEnumerable<Ak.ElVegetarianoFurio.Models.Dish>
+
+@{
+    ViewBag.Title = "Suchergebnis";
+}
+
+<h2>Suche in Speisekarte</h2>
+
+@foreach (var category in Model)
+{
+    <h3>Suchergebnis für @ViewBag.SearchTerm</h3>
+
+    foreach (var dish in Model)
+    {
+        <div class="row">
+            <div class="col-md-1"><span class="badge">@dish.Id</span></div>
+            <div class="col-md-11"><em>@dish.Name</em></div>
+            <div class="col-md-10 col-md-offset-1">@Html.Raw(dish.Description)</div>
+            <div class="col-md-1">@dish.Price.ToString("C")</div>
+        </div>
+    }
+
+}

@@ -6,6 +6,15 @@
 
 <h2>Speisekarte</h2>
 
+
+<h3>Suche</h3>
+@using (Html.BeginForm("Find","Menu", FormMethod.Get))
+{
+    <input type="text" name="searchTerm" id="searchTerm" placeholder="Suchbegriff"/><br/>
+    <input type="submit" value="Suchen"/>
+}
+
+
 @foreach (var category in Model)
 {
     <h3>@category.Name (@category.Description)</h3>

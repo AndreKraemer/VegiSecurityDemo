@@ -24,19 +24,38 @@ namespace Ak.ElVegetarianoFurio.Migrations
 
             if (!context.Users.Any())
             {
+
+
                 var userStore = new UserStore<ApplicationUser>(context);
                 var userManager = new UserManager<ApplicationUser>(userStore);
                 var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
 
+
+                userManager.UserValidator = new UserValidator<ApplicationUser>(userManager)
+                {
+                    AllowOnlyAlphanumericUserNames = false,
+                    RequireUniqueEmail = true
+                };
+
+                // Konfigurieren der Überprüfungslogik für Kennwörter.
+                userManager.PasswordValidator = new PasswordValidator
+                {
+                    RequiredLength = 6,
+                    RequireNonLetterOrDigit = true,
+                    RequireDigit = true,
+                    RequireLowercase = true,
+                    RequireUppercase = true,
+                };
                 roleManager.Create(new IdentityRole("Admin"));
 
-                var admin = new ApplicationUser { UserName = "admin@el-vegi-furio.de" };
+                var admin = new ApplicationUser { UserName = "admin@el-vegi-furio.de", Email = "admin@el-vegi-furio.de" };
                 userManager.Create(admin, "G3h4im?");
                 context.SaveChanges();
+                Console.WriteLine("User Created. Id: {0}", admin.Id);
                 userManager.AddToRole(admin.Id, "Admin");
                 
 
-                var userToInsert = new ApplicationUser { UserName = "wilhelm@brause.de" };
+                var userToInsert = new ApplicationUser { UserName = "wilhelm@brause.de", Email = "wilhelm@brause.de" };
                 userManager.Create(userToInsert, "G3h4im?");
 
                 context.PaymentInfos.Add(new PaymentInfo
@@ -77,7 +96,7 @@ namespace Ak.ElVegetarianoFurio.Migrations
                     UserId = userToInsert.Id
                 });
 
-                userToInsert = new ApplicationUser { UserName = "hans@dampf.de" };
+                userToInsert = new ApplicationUser { UserName = "hans@dampf.de", Email = "hans@dampf.de" };
                 userManager.Create(userToInsert, "G3h4im?");
 
                 context.PaymentInfos.Add(new PaymentInfo

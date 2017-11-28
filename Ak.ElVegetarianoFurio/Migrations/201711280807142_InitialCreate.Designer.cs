@@ -7,13 +7,13 @@ namespace Ak.ElVegetarianoFurio.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class AddedUserColumnToInvoice : IMigrationMetadata
+    public sealed partial class InitialCreate : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddedUserColumnToInvoice));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialCreate));
         
         string IMigrationMetadata.Id
         {
-            get { return "201708182053569_AddedUserColumnToInvoice"; }
+            get { return "201711280807142_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source

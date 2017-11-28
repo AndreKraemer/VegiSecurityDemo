@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -255,17 +256,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201708181902071_InitialCreate.cs" />
-    <Compile Include="Migrations\201708181902071_InitialCreate.Designer.cs">
-      <DependentUpon>201708181902071_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708182050184_AddedInvoiceCouponsAddresses.cs" />
-    <Compile Include="Migrations\201708182050184_AddedInvoiceCouponsAddresses.Designer.cs">
-      <DependentUpon>201708182050184_AddedInvoiceCouponsAddresses.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708182053569_AddedUserColumnToInvoice.cs" />
-    <Compile Include="Migrations\201708182053569_AddedUserColumnToInvoice.Designer.cs">
-      <DependentUpon>201708182053569_AddedUserColumnToInvoice.cs</DependentUpon>
+    <Compile Include="Migrations\201711280807142_InitialCreate.cs" />
+    <Compile Include="Migrations\201711280807142_InitialCreate.Designer.cs">
+      <DependentUpon>201711280807142_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -377,17 +370,7 @@
     <Content Include="Views\Invoices\Index.cshtml" />
     <Content Include="Views\Coupon\Index.cshtml" />
     <Content Include="Views\Coupon\Create.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201708181902071_InitialCreate.resx">
-      <DependentUpon>201708181902071_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708182050184_AddedInvoiceCouponsAddresses.resx">
-      <DependentUpon>201708182050184_AddedInvoiceCouponsAddresses.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708182053569_AddedUserColumnToInvoice.resx">
-      <DependentUpon>201708182053569_AddedUserColumnToInvoice.cs</DependentUpon>
-    </EmbeddedResource>
+    <Content Include="Views\Menu\Find.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -407,6 +390,11 @@
   <ItemGroup>
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Backup\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201711280807142_InitialCreate.resx">
+      <DependentUpon>201711280807142_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
