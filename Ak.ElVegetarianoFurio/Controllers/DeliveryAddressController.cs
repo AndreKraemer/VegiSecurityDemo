@@ -37,9 +37,8 @@ namespace Ak.ElVegetarianoFurio.Controllers
         public ActionResult Edit(DeliveryAddress model)
         {
 
-            var userId = User.Identity.GetUserId();
-            var address = _db.DeliveryAddresses
-                .FirstOrDefault(x => x.UserId == userId);
+            var address = _db.DeliveryAddresses.Find(model.Id);
+            
             if (address == null)
             {
                 return HttpNotFound();

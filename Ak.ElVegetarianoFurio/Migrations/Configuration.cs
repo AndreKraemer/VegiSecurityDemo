@@ -96,9 +96,21 @@ namespace Ak.ElVegetarianoFurio.Migrations
                     UserId = userToInsert.Id
                 });
 
+                context.DeliveryAddresses.Add(new DeliveryAddress
+                {
+                    FirstName = "Wilhelm",
+                    LastName = "Brause",
+                    Street = "Am Dom 1",
+                    City = "Köln",
+                    Zip = "50660",
+                    UserId = userToInsert.Id
+                });
+
+                context.SaveChanges();
+
                 userToInsert = new ApplicationUser { UserName = "hans@dampf.de", Email = "hans@dampf.de" };
                 userManager.Create(userToInsert, "G3h4im?");
-
+                context.SaveChanges();
                 context.PaymentInfos.Add(new PaymentInfo
                 {
                     AccountNumber = "9981-5953-1298-7609",
@@ -119,8 +131,18 @@ namespace Ak.ElVegetarianoFurio.Migrations
                     User = userToInsert
                 });
 
+                context.DeliveryAddresses.Add(new DeliveryAddress
+                {
+                    FirstName="Hans",
+                    LastName = "Dampf",
+                    Street = "Poststraße 1",
+                    City = "Köln",
+                    Zip="50660",
+                    UserId = userToInsert.Id
+                });
 
 
+                context.SaveChanges();
 
                 var path = AppDomain.CurrentDomain.GetData("DataDirectory").ToString();
                 var dishesJson = File.ReadAllText(Path.Combine(path, "dishes.json"));
